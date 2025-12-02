@@ -1,35 +1,29 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+// src/App.jsx
+import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
+import { useState } from 'react';
+import "./App.css";
+import Index from './pages/index.jsx';
+import VideoBG from "./components/BG/VideoBG";
 
 function App() {
-  const [count, setCount] = useState(0)
-
+  const [isNavOpen, setIsNavOpen] = useState(false);
+  const closeNav = () => setIsNavOpen(false);
   return (
-    <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
+    <Router>
+      <VideoBG>
+        <div className="app-main">
+          <button className="nav-toggle-btn"  onClick={() => setIsNavOpen(true)} aria-label="打开导航菜单">☰</button>
+          <Routes>
+            <Route path="/" element={<Index />} />
+          </Routes>
+        </div>
+        <div className={`nav-overlay ${isNavOpen ? 'active' : ''}`} onClick={closeNav}>
+          <nav className="nav-menu">
+            <Link to="/" onClick={closeNav}>首页</Link>
+          </nav>
+        </div>
+      </VideoBG>
+    </Router>
+  );
 }
-
-export default App
+export default App; 

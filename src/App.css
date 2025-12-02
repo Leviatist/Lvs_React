@@ -1,42 +1,82 @@
+/* src/App.css */
 #root {
-  max-width: 1280px;
   margin: 0 auto;
-  padding: 2rem;
+}
+
+body {
   text-align: center;
+  width: 100%;
 }
 
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
+.app-main {
+  position: relative;
+  padding: 20px;
+  z-index: 10;
 }
 
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.nav-toggle-btn {
+  position: fixed;
+  top: 20px;
+  left: 20px;
+  background: none;
+  border: none;
+  font-size: 24px;
+  cursor: pointer;
+  z-index: 1000;
+  color: #00ff2f;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
-  }
+.nav-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(10px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 2000;
+  pointer-events: none; /* ← 默认不拦截事件 */
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease, visibility 0.3s ease;
 }
 
-.card {
-  padding: 2em;
+.nav-overlay.active {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto; /* ← 打开时才接收点击 */
 }
 
-.read-the-docs {
-  color: #888;
+.nav-menu {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  text-align: center;
+  background: transparent;
+  padding: 20px;
+  transform: scale(0.9);
+  opacity: 0;
+  transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275),
+              opacity 0.3s ease;
+}
+
+.nav-overlay.active .nav-menu {
+  transform: scale(1);
+  opacity: 1;
+}
+
+.nav-menu a {
+  font-size: 50px;
+  text-decoration: none;
+  color: #00FFC8;
+  padding: 0px 12px;
+  transition: color 0.2s, transform 0.2s;
+}
+
+.nav-menu a:hover {
+  color: #C5C1C0;
+  transform: scale(1.05);
 }

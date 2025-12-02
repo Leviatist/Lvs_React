@@ -1,0 +1,28 @@
+/* src/components/VideoBG.module.css */
+.videoBgContainer {
+  position: fixed;         /* 相对整个浏览器固定 */
+  z-index: 0;              /* 最底层 */
+  pointer-events: none;
+  /* overflow: hidden; 好像不会出现滑动条（）*/
+}
+
+.videoBg {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;        /* 占满视窗 */
+  position: fixed;          /* 相对浏览器占满 */
+  pointer-events: none;
+}
+
+.contentLayer {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.7);
+  padding: 0 20px;
+  position: relative;
+  z-index: 1;
+}
