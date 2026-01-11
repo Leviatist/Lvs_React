@@ -5,14 +5,14 @@ import "./App.css";
 import Index from './pages/index.jsx';
 import Blog from './pages/blog/blog.jsx'
 import Navi from './pages/navi/navi.jsx';
-import VideoBG from "./components/BG/VideoBG";
+import StaticBG from './components/BG/StaticBG.jsx';
 
 function App() {
   const [isNavOpen, setIsNavOpen] = useState(false);
   const closeNav = () => setIsNavOpen(false);
   return (
     <Router>
-      <VideoBG>
+      <StaticBG>
         <div className="app-main">
           <button className="nav-toggle-btn"  onClick={() => setIsNavOpen(true)} aria-label="打开导航菜单">☰</button>
           <Routes>
@@ -28,7 +28,7 @@ function App() {
             <Link to="/blog" onClick={closeNav}>Blog</Link>
           </nav>
         </div>
-      </VideoBG>
+      </StaticBG>
     </Router>
   );
 }

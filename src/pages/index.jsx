@@ -1,6 +1,6 @@
 function Index() {
   return (
-    <h1>Hi</h1>
+    <h1>我要见诸相</h1>
   );
 }
 
