@@ -3,8 +3,8 @@ import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
 import { useState } from 'react';
 import "./App.css";
 import Index from './pages/index.jsx';
-import Blog from './pages/blog.jsx'
-import Navi from './pages/navi.jsx';
+import Blog from './pages/blog/blog.jsx'
+import Navi from './pages/navi/navi.jsx';
 import VideoBG from "./components/BG/VideoBG";
 
 function App() {

@@ -1,5 +1,5 @@
 // src/components/VideoBG.jsx
-import bgVideo from '../../assets/BG-V-00.mp4';
+import bgVideo from '../../assets/video/BG-V-01.mp4';
 import styles from './VideoBG.module.css'; // 引入 CSS 模块
 
 export default function VideoBG({ children, className = '' }) {
